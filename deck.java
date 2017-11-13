@@ -1,9 +1,11 @@
-
-
 import java.util.*;
-
+//TODO: please add new fields and methods to Deck class (35)
+		//usedCard (5 points)
+		//nUsed (5 points)
+		//getOneCard (10 points)
+		//shuffle (10 points)
+		//constructor (5 points)
 public class deck {
-
 	private ArrayList<Card> cards;
 	private ArrayList<Card> usedCard;
 	public int nUsed = -1;
@@ -22,7 +24,6 @@ public class deck {
 			}
 		}
 	}
-
 	public void printDeck() {
 		for(Card a:cards)
 		{
@@ -39,7 +40,6 @@ public class deck {
 		usedCard.add(cards.get(nUsed));
 		return cards.get(nUsed);
 	}
-
 	public void shuffle() {
 		ArrayList<Card> NewCard = new ArrayList<Card>();
 		Random rnd = new Random();
@@ -50,14 +50,13 @@ public class deck {
 			{
 				c = cards.get(rnd.nextInt(52));
 			} 
-			while (NewCard.contains(c));
+			while(NewCard.contains(c));
 			NewCard.add(c);
 		}
 		cards.clear();
 		cards = NewCard;
 		nUsed = 0;
 	}
-
 	public ArrayList<Card> getAllCards() {
 		return cards;
 	}

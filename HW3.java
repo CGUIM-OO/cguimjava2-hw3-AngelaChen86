@@ -3,7 +3,7 @@ import java.util.HashMap;
 //import java.util.Scanner;
 
 /**
- * @author TODO:B0544151³¯²úÓz
+ * @author TODO:B0544151 ³¯²úÓz
  * Try to write some comments for your codes (methods, 10 points)
  */
 public class HW3 {
