@@ -1,44 +1,64 @@
-import java.util.Random;
+
+
+import java.util.*;
 
 public class deck {
 
-	public static void main(String[] args) {
-				//TODO: please add new fields and methods to Deck class (35)
-				//usedCard (5 points)
-				//nUsed (5 points)
-				//getOneCard (10 points)
-				//shuffle (10 points)
-				//constructor (5 points)
-				deck deck=new deck(nDeck);
-				//Card newCard=deck.getOneCard();
-				}
-	
-	static void shuffle(Object suit,Object rank) {
-		// TODO Auto-generated method stub
-				Random rnd = new Random();
-				int j = rnd.nextInt(suit - 1);
-	}
-	
-	public static Card getOneCard() {
-		int suit = 4;
-		int value = 13;
-		Card.printCard();
-		if(value <= 1 && suit <= 1)
+	private ArrayList<Card> cards;
+	private ArrayList<Card> usedCard;
+	public int nUsed = -1;
+	public deck(int nDeck) {
+		cards = new ArrayList<Card>();
+		usedCard =new ArrayList<Card>();
+		for (int i = 1; i <= nDeck; i++) 
 		{
-			shuffle(suit,rank);
-		}
-	}
-	
-	public static Object getAllCards() {
-		
-		
-	}
-	static void Constructor (int suit, int rank) {
-		for (suit = 4;suit <= 1;suit--){
-			for(rank = 13;rank <= 1;rank--)
+			for (Card.Suit suit : Card.Suit.values()) 
 			{
-				System.out.println(suit+","+rank);
+				for (int rank = 1; rank <= 13; rank++)
+				{
+					Card card = new Card(suit, rank);
+					cards.add(card);
+				}
 			}
 		}
+	}
+
+	public void printDeck() {
+		for(Card a:cards)
+		{
+			a.printCard();
+		}
+	}
+	public Card getOneCard() {
+		nUsed = nUsed + 1;
+		if(nUsed == 52)
+		{
+			usedCard.clear();
+			shuffle();
+		}
+		usedCard.add(cards.get(nUsed));
+		return cards.get(nUsed);
+	}
+
+	public void shuffle() {
+		ArrayList<Card> NewCard = new ArrayList<Card>();
+		Random rnd = new Random();
+		Card c;
+		for (int i = 1; i <= 52; i++) 
+		{
+			do 
+			{
+				c = cards.get(rnd.nextInt(52));
+			} 
+			while (NewCard.contains(c));
+			NewCard.add(c);
+		}
+		cards.clear();
+		cards = NewCard;
+		nUsed = 0;
+	}
+
+	public ArrayList<Card> getAllCards() {
+		return cards;
 	}
 }
