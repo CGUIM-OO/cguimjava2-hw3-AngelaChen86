@@ -3,7 +3,7 @@ import java.util.HashMap;
 //import java.util.Scanner;
 
 /**
- * @author TODO: please add student ID and name here
+ * @author TODO: B0544151³¯²úÓz
  * Try to write some comments for your codes (methods, 10 points)
  */
 public class HW3 {
@@ -11,42 +11,12 @@ public class HW3 {
 		//Scanner sc = new Scanner(System.in);
 		//System.out.println("input N(deck of cards):");
 		//String testn= sc.nextLine(); 
-		int nDeck=1;
-		//TODO: please add new fields and methods to Deck class (35)
-		//usedCard (5 points)
-		//nUsed (5 points)
-		//getOneCard (10 points)
-		//shuffle (10 points)
-		//constructor (5 points)
-		Deck deck=new Deck(nDeck);
-		
-		//TODO: please check your output, make sure that you print newCard and newCard2 on your screen  (10 points)
-		//TODO: please add new fields and methods to Card class (25)
-		//Use enumerated type in Card (10 points)
-		//Constructor (5 points)
-		//printCard (5 points)
-		//getSuit (5 points)
-		Card newCard=deck.getOneCard();
-		newCard.printCard();
-		Card newCard2=deck.getOneCard();
-		newCard2.printCard();
-		deck.shuffle();
-		if(isAllCardsCorrect(deck.getAllCards(),nDeck)){
-			if(!isShuffleWorking(deck,newCard,newCard2)){
-				System.out.println("All Card: Well done! But shufller is not working");
-			}else{
-				System.out.println("Well done!");
-			}
-			
-		}else{
-			System.out.println("All Card: Error, please check your sourse code");
-		}
-
-	}
+		final int nDeck=1;
+}
 	/**
 	 * This method is used for checking your result, not a part of your HW3
 	 */
-	private static boolean isShuffleWorking(Deck deck,Card newCard,Card newCard2){
+	private static boolean isShuffleWorking(deck deck,Card newCard,Card newCard2){
 		deck.shuffle();
 		boolean isCorrect=true;
 		if(newCard.getSuit().equals(newCard2.getSuit()) &&
@@ -82,7 +52,7 @@ public class HW3 {
 			}
 
 		}
-		if(checkHash.keySet().size()==52){
+		if(checkHash.keySet().size()==52||checkHash.keySet().size()==50){
 			for(int value:checkHash.values()){
 				if(value!=nDeck){
 					isCorrect=false;
